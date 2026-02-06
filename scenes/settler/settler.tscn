@@ -1,0 +1,36 @@
+[gd_scene load_steps=6 format=3 uid="uid://brphlra0674e"]
+
+[ext_resource type="Script" uid="uid://ymu1ad2tf2qx" path="res://scenes/settler/settler.gd" id="1_f1qsw"]
+[ext_resource type="Texture2D" uid="uid://cxgc66qw2jyef" path="res://assets/Characters/Dwarf/YellowMiner.png" id="2_as1vt"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_ydukk"]
+radius = 2.0
+height = 4.0
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_w6t83"]
+atlas = ExtResource("2_as1vt")
+region = Rect2(0, 0, 48, 48)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_o2l13"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_w6t83")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[node name="Settler" type="Node2D"]
+script = ExtResource("1_f1qsw")
+
+[node name="CharacterBody2D" type="CharacterBody2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="CharacterBody2D"]
+shape = SubResource("CapsuleShape2D_ydukk")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="CharacterBody2D"]
+position = Vector2(2.3841858e-07, 0)
+scale = Vector2(0.28645834, 0.24553572)
+sprite_frames = SubResource("SpriteFrames_o2l13")

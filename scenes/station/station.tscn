@@ -1,0 +1,32 @@
+[gd_scene load_steps=5 format=3 uid="uid://ccs2wggh3m7j6"]
+
+[ext_resource type="Texture2D" uid="uid://dnrtrncx68bum" path="res://assets/sprites/BaseSet.png" id="1_fwkoa"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_s6h3s"]
+size = Vector2(14, 15)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_2tl6a"]
+atlas = ExtResource("1_fwkoa")
+region = Rect2(240, 528, 16, 16)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_5a57x"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_2tl6a")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[node name="Station" type="Node2D"]
+
+[node name="StaticBody2D" type="StaticBody2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2(0, -0.5)
+shape = SubResource("RectangleShape2D_s6h3s")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="StaticBody2D"]
+sprite_frames = SubResource("SpriteFrames_5a57x")
